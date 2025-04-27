@@ -17,6 +17,7 @@ export class LinkController {
             const result = await this.createLinkUseCase.execute(url)
            return res.status(201).json({ link: result.shortUrl })
         } catch (error) {
+            console.log(error)
            return res.status(500).json({ error: 'Error to shorten url' })
         }
     }
