@@ -7,17 +7,17 @@ export class LinkController {
     ) { }
 
 
-    async create(req: Request, res: Response) {
-        const { url }: { url: string } = req.body
+    async create(req: Request, res: Response):Promise<any> {
+        const { url }: { url: string | null } = req.body
 
         if (!url)
             return res.status(400).json({ error: 'URL  required' })
 
         try {
             const result = await this.createLinkUseCase.execute(url)
-            res.status(201).json({ link: result.shortUrl })
+           return res.status(201).json({ link: result.shortUrl })
         } catch (error) {
-            res.status(500).json({ error: 'Error to shorten url' })
+           return res.status(500).json({ error: 'Error to shorten url' })
         }
     }
 }
