@@ -1,0 +1,26 @@
+{
+  "name": "node-short-link",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:js-master-devx/short-link.git",
+  "author": "noah-jr <noe.magalhaes08@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.14.0",
+    "shortid": "^2.2.17",
+    "valid-url": "^1.0.9"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.5",
+    "@types/express": "^5.0.1",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^22.15.2",
+    "@types/shortid": "^2.2.0",
+    "@types/valid-url": "^1.0.7",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3"
+  }
+}
