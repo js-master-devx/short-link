@@ -14,7 +14,7 @@ export class LinkService implements ILinkService {
 
     async shortenLink(originalUrl: string): Promise<string> {
         if (!validUrl.isUri(originalUrl)) throw new Error('URL invalid')
-        const shortUrl: string = shortid.generate()
+        const shortUrl: string = 'devx.y'+shortid.generate()
         const link = Link.create(originalUrl, shortUrl)
         await this.linkRepository.create(link)
 

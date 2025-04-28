@@ -9,7 +9,7 @@ export type linkProps = {
 
 export class Link {
 
-    private constructor(private readonly props: linkProps) {
+    private constructor( readonly props: linkProps) {
         // Object.assign(this, props)
     }
 

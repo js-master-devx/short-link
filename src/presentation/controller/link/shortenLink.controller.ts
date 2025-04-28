@@ -1,13 +1,13 @@
 import { CreateShortLinkUseCase } from "@/domain/usecase/create-short-link";
 import { Request, Response } from "express";
 
-export class LinkController {
+export class ShortenLinkController {
     constructor(
         private readonly createLinkUseCase: CreateShortLinkUseCase
     ) { }
 
 
-    async create(req: Request, res: Response):Promise<any> {
+    async execute(req: Request, res: Response):Promise<any> {
         const { url }: { url: string | null } = req.body
 
         if (!url)
@@ -17,7 +17,6 @@ export class LinkController {
             const result = await this.createLinkUseCase.execute(url)
            return res.status(201).json({ link: result.shortUrl })
         } catch (error) {
-            console.log(error)
            return res.status(500).json({ error: 'Error to shorten url' })
         }
     }
