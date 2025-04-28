@@ -11,7 +11,7 @@ services:
     depends_on:
       - mongo
     networks:
-      - app-network
+      - app-short-url
 
   mongo:
     image: mongo
@@ -20,11 +20,11 @@ services:
     volumes:
       - "./mongo-data: /data/db"
     networks:
-      - app-network
+      - app-short-url
 
 volumes:
   mongo-data:
 
 networks:
-  app-network:
+  app-short-url:
     driver: brigde

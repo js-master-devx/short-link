@@ -23,12 +23,13 @@ app.use(errorHandler)
 app.use((_: Request, res: Response) => {
     res.status(404).json({ message: 'ROUTER NOT FOUND! SHORTEN LINK API 👺' })
 })
-app.listen(process.env.PORT, () => {
-    console.log(`SHORTEN API IS RUNNING ON https://127.0.0.1:${process.env.PORT}🚀 `)
-})
 
-// mongoose.connect(process.env.MONGO_URI!).then(() => {
-//     console.log('DB CONNECTED 💥')
-// }).catch((error: any) => {
-//     console.error('ERROR NOT CONNECTED TO DB' + error.message?.toString().toUpperCase())
-// })
+
+mongoose.connect(process.env.MONGO_URI!).then(() => {
+    console.log('DB CONNECTED 💥')
+    app.listen(process.env.PORT, () => {
+        console.log(`SHORTEN API IS RUNNING ON https://127.0.0.1:${process.env.PORT}🚀 `)
+    })
+}).catch((error: any) => {
+    console.error('ERROR NOT CONNECTED TO DB' + error.message?.toString().toUpperCase())
+})
